@@ -43,7 +43,7 @@ public class ClientHandler implements Runnable {
             while ((message = in.readLine()) != null) {
                 if (message.startsWith("LOGIN:")) {
                     this.login = message.substring(6).trim();
-                    broadcast(login + " dołączył do czatu.");
+                    broadcast(login + " dolaczyl do czatu.");
                     break;
                 } else {
                     out.println("Niepoprawny format logowania.");
@@ -55,13 +55,13 @@ public class ClientHandler implements Runnable {
                             .map(c -> "["+c.login+"]").collect(Collectors.joining("\n"));
                     sendMessage("Uzytkownicy online: "+users);
                 } else {
-                    System.out.println("Otrzymano wiadomość: " + message);
+                    System.out.println("Otrzymano wiadomosc: " + message);
                     broadcast(this.login + ": " + message);
                 }
             }
 
         } catch (IOException e) {
-            System.err.println("Błąd komunikacji: "+ e.getMessage());
+            System.err.println("Blad komunikacji: "+ e.getMessage());
         } finally {
             try {
                 socket.close();
@@ -71,7 +71,7 @@ public class ClientHandler implements Runnable {
 
             clients.remove(this);
             if (login != null) {
-                broadcast(login + " opuścił czat.");
+                broadcast(login + " opuscil czat.");
             }
         }
     }
