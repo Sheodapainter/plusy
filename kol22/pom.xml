@@ -25,5 +25,16 @@
             <version>21</version>
         </dependency>
     </dependencies>
-
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <version>3.1.0</version>
+            <configuration>
+                <mainClass>org.example.Client</mainClass>
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
 </project>
